@@ -1,5 +1,3 @@
-
-
 import 'package:app_jam_ai_flutter/utils/theme.dart';
 import 'package:flutter/material.dart';
 

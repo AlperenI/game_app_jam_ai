@@ -1,14 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'dart:io';
-
 import 'package:app_jam_ai_flutter/providers/themeProvider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-
-import '../nav_pages.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});

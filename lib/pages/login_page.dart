@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:app_jam_ai_flutter/nav_pages.dart';
-import 'package:app_jam_ai_flutter/pages/sign_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

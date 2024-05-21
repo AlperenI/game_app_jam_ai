@@ -22,7 +22,7 @@ class _ChatPageState extends State<ChatPage> {
         centerTitle: true,
         title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Chat With Gemini"),
+            Text("Soru Hazinesiyle Mesajlaş!"),
             IconButton(onPressed:(){
               
                 showDialog(context: context, builder:(context) {

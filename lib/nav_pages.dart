@@ -21,7 +21,7 @@ class _NavPagesState extends State<NavPages> {
           unselectedItemColor:Provider.of<ThemeProvider>(context).themeData.navigationBarTheme.surfaceTintColor,
           showUnselectedLabels: false,
           elevation: 115,
-          fixedColor: Color.fromARGB(255, 39, 134, 29),
+          fixedColor: Color.fromARGB(255, 70, 70, 72),
           backgroundColor:Provider.of<ThemeProvider>(context).themeData.canvasColor,
           type: BottomNavigationBarType.fixed,
           currentIndex:Provider.of<ChangePage>(context).indexIs,

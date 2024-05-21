@@ -1,115 +1,103 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:app_jam_ai_flutter/nav_pages.dart';
 import 'package:app_jam_ai_flutter/pages/sign_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({
     super.key,
   });
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
 
+class _LoginPageState extends State<LoginPage> {
+  final username = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Login Page"),
-      ),
       body: SafeArea(
         child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-              //Email Burada!!!!
+              Text(
+                "Soru Hazinesi",
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 30,
+                  fontStyle: FontStyle.normal,
+                ),
+              ),
+              SizedBox(height: 30,),
+              Center(
+                child: Image.asset("assets/logo.png",width: 60,),
+              ),
+              SizedBox(height: 50,),
               
+              Text("Kullanıcı Girişi",style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+              //Email Burada!!!!
+              SizedBox(height: 20,),
+
               Padding(
                 padding: const EdgeInsets.only(left: 40,right: 40),
                 child: TextField(
-                  controller: TextEditingController(),
+                  controller: username,
                   style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.w300),
                   decoration: InputDecoration(
+                    fillColor: Color.fromARGB(255, 224, 224, 224),
+                    filled: true,
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(width: 1,color: Colors.grey)
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(width: 1,color: Colors.transparent)
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 3)
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(color: Colors.black,width: 3)
                     ),
-                    hintText: "email"
+                    hintText: "Username"
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
-
-              //Password Burada!!!!
-
+              SizedBox(height: 25,),
               Padding(
-                padding: const EdgeInsets.only(left:40.0,right: 40),
-                child: TextField(
-                  obscureText: true,
-                  controller: TextEditingController(),
-                  style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.w300),
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(width: 1,color: Colors.grey)
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 3)
-                    ),
-                    hintText: "password"
-                  ),
-                ),
-              )
-            ,SizedBox(height: 20,),
-
-            //Giriş Yap Butonu Burada!!!
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
+                padding: const EdgeInsets.only(left: 40,right: 40),
+                child: GestureDetector(
                   child: Container(
                     height: 50,
-                    width: 80,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      shape:BoxShape.rectangle,
-                      border:Border.all(color: Colors.greenAccent.shade700,strokeAlign:BorderSide.strokeAlignCenter),
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 224, 224, 224),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Giriş Yap",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    child: Center(child: Text("Giriş Yap",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w500),))),
-                  onTap: () {
-                      Navigator.pushReplacement(context, 
-                      MaterialPageRoute(builder:(context)=>NavPages() ),
+                    ),
+                  ),
+                  onTap: (){
+                    if(username.text.length == 0){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          // backgroundColor: Color.fromARGB(255, 100, 224, 224),
+                          backgroundColor: Color.fromARGB(255, 70, 70, 72),
+                          content: Text("Lütfen giriş yapmak için kullanıcı adı giriniz!"),
+                        ),
                       );
+                    }
+                    else{
+                      Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder:(context)=>NavPages()));
+                    }
                   },
                 ),
-              ],
-            ),
-           SizedBox(height: 20,),
-
-           // ÜYE OLMA BUTONU BURAYA!!!
-           
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Üye değil misin?   "),
-                SizedBox(width: 15,child: Text("|",style: TextStyle(fontSize:30,fontWeight: FontWeight.w100),),),
-                GestureDetector(
-                  onTap: (){
-                    Navigator.pushReplacement(context, 
-                      MaterialPageRoute(builder:(context)=>SignPage() ),
-                      );
-                  },
-                  child: Text("Üye OL!",style: TextStyle(
-                    fontWeight: FontWeight.bold,color: Colors.black87,fontSize:19
-                  ),)),
-              ],
-            )
+              ),
+            SizedBox(height: 20,),
             ],
           ),
         ),

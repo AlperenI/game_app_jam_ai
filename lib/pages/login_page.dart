@@ -3,6 +3,9 @@ import 'package:app_jam_ai_flutter/nav_pages.dart';
 import 'package:app_jam_ai_flutter/pages/sign_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/themeProvider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -91,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                       );
                     }
                     else{
+                      Provider.of<ThemeProvider>(context,listen: false).username = username.text;
                       Navigator.pushReplacement(context,
                       MaterialPageRoute(builder:(context)=>NavPages()));
                     }

@@ -84,7 +84,7 @@ class _SettingPageState extends State<SettingPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Username",
+                      "username",
                       style: TextStyle(
                           fontSize: 18,
                       ),
